@@ -27,12 +27,54 @@
 
 */
 
+window.addEventListener("load", findKeyWords);
+window.addEventListener("load", makeKeyStyles);
 
+function findKeyWords() {
+   var articleElement = document.getElementById("doc");
+   var h2 = document.getElementsByTagName("h1")[0];
+}
 
+var asideElement = document.createElement("aside");
+asideElement.setAttribute("id", "keywords")
 
+var h1Element = document.createElement("h1");
+var h1Text = document.createTextNode("Keyword List");
 
+h1Element.appendChild(h1Text);
+asideElement.appendChild(h1Element);
+articleElement.insertBefore(asideElement, h2);
 
+var orderedListElement = document.createElement("ol");
+asideElement.appendChild(orderedListElement);
 
+var keywordElems = document.querySelectorAll("dfn");
+var keyWords = [];
+
+for (var i = 0; i < keywordElems.length; i++) {
+   keyWords.push(keywordElems[i].textContent);
+}
+
+keyWords.sort();
+
+keywordElems.forEach((elem) => {
+   elem.setAttribute("id", "keyboard_" + replaceWS(elem.textContent));
+});
+
+for (var i = 0; i < keyWords.length; i++) {
+   var listItemElement = document.createElement("li");
+   var keyWordLink = document.createElement("a");
+   keyWordLink.innerHTML = keyWords[i];
+
+   keyWordLink.setAttribute("href", "#keyword_" + replaceWS(keyWords[i]));
+   listItemElement.appendChild(keyWordLink);
+   orderedListElement.appendChild(listItemElement);
+}
+
+function makeKeyStyles() {
+   document.styleSheets[document.styleSheets.length - 1].insertRule("aside#keywords { " + "border: 3px solid rgb(101, 101, 101);" + "float: right;" + "margin: 20px 0px 20px 20px;" + "padding: 10px;" + "width: 320px;" + "}" , 0
+   );
+}
 
 /* Supplied Functions */
 
