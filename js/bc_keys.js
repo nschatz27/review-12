@@ -5,8 +5,8 @@
    Tutorial 12
    Review Assignment
 
-   Author: 
-   Date:   
+   Author: Noah Schatz
+   Date:   03/06/2026
 
    Filename: bc_keys.js
 
