@@ -33,7 +33,6 @@ window.addEventListener("load", makeKeyStyles);
 function findKeyWords() {
    var articleElement = document.getElementById("doc");
    var h2 = document.getElementsByTagName("h1")[0];
-}
 
 var asideElement = document.createElement("aside");
 asideElement.setAttribute("id", "keywords")
@@ -70,43 +69,51 @@ for (var i = 0; i < keyWords.length; i++) {
    listItemElement.appendChild(keyWordLink);
    orderedListElement.appendChild(listItemElement);
 }
+}
 
 function makeKeyStyles() {
+  document.styleSheets[document.styleSheets.length - 1].insertRule(
+      "aside#keywords { " +
+      "border: 3px solid rgb(101,101,101);" +
+      "float: right;" +
+      "margin: 20px 0px 20px 20px;" +
+      "padding: 10px;" +
+      "width: 320px;" +
+      "}"
+    , 0
+  );
+
    document.styleSheets[document.styleSheets.length - 1].insertRule(
-      "aside#keywords { " + 
-      "border: 3px solid rgb(101, 101, 101);" + 
-      "float: right;" + 
-      "margin: 20px 0px 20px 20px;" + 
-      "padding: 10px;" + "width: 320px;" + 
-      "}" , 0
-   );
+      "aside#keywords h1 { " +
+      "font-size: 2em;" +
+      "margin: 5px;" +
+      "text-align: center;" +
+      "}"
+      , 1
+  );
 
-   document.styleSheets[document.styleSheets.length -1].insertRule(
-      "aside#keywords h1 { " + 
-      "font-size: 2em;" + 
-      "margin: 5px;" + 
-      "text-align: center;" + " } ", 1
-   ); 
-
-   document.styleSheets[document.styleSheets.length -1].insertRule(
-      "aside#keywords ol { " + 
+   document.styleSheets[document.styleSheets.length - 1].insertRule(
+      "aside#keywords ol { " +
       "font-size: 1.2em;" +
       "margin-left: 20px;" +
-   "}" , 2
-   );
-
-   document.styleSheets[document.styleSheets.length -1].insertRule(
-      "aside#keywords ol li { " +
-      "line-height: 1.5em;" +
-      "{" , 3
-   );
+      "}"
+      , 2
+  );
 
    document.styleSheets[document.styleSheets.length - 1].insertRule(
-      "aside#keywords ol li a { " +
-      "color: rgb(101, 101m 101);" +
-      "text-decoration: none;" +
-      "}" , 4
-   );
+    "aside#keywords ol li { " +
+    "line-height: 1.5em;" +
+    "}"
+    , 3
+  );
+
+   document.styleSheets[document.styleSheets.length - 1].insertRule(
+    "aside#keywords ol li a { " +
+    "color: rgb(101,101,101);" +
+    "text-decoration: none;" +
+    "}"
+    , 4
+  );
 }
 
 /* Supplied Functions */
