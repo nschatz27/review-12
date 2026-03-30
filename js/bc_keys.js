@@ -47,18 +47,18 @@ articleElement.insertBefore(asideElement, h2);
 var orderedListElement = document.createElement("ol");
 asideElement.appendChild(orderedListElement);
 
-var keywordElems = document.querySelectorAll("dfn");
+var keyWordElems = document.querySelectorAll("dfn");
 var keyWords = [];
 
-for (var i = 0; i < keywordElems.length; i++) {
-   keyWords.push(keywordElems[i].textContent);
+for (var i = 0; i < keyWordElems.length; i++) {
+    keyWords.push(keyWordElems[i].textContent);
 }
 
 keyWords.sort();
 
-keywordElems.forEach((elem) => {
-   elem.setAttribute("id", "keyboard_" + replaceWS(elem.textContent));
-});
+keyWordElems.forEach((elem) => {
+    elem.setAttribute("id", "keyword_" + replaceWS(elem.textContent));
+  });
 
 for (var i = 0; i < keyWords.length; i++) {
    var listItemElement = document.createElement("li");
